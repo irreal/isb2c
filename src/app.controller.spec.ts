@@ -7,16 +7,16 @@ describe("AppController", () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [AppController],
-      providers: []
+      providers: [],
     }).compile();
 
     appController = app.get<AppController>(AppController);
   });
 
   describe("root", () => {
-    it('should return "Hello World!"', () => {
+    it("should return greeting", () => {
       expect(appController.getInfo()).toEqual({
-        msg: "RESTheon is running :)"
+        msg: "Iglu Šport is running :)",
       });
     });
   });
