@@ -2,25 +2,19 @@ import { Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { ConfigModule } from "@nestjs/config";
 import { SqlService } from "./sql/sql.service";
-import { DirectSqlController } from "./direct-sql/direct-sql.controller";
-import { SpecificPantheonService } from "./specific-pantheon/specific-pantheon.service";
-import { UsingHelperServiceController } from "./using-helper-service/using-helper-service.controller";
 import { AuthModule } from "./auth/auth.module";
 import { UsersModule } from "./users/users.module";
+import { B2cController } from "./b2c/b2c.controller";
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     AuthModule,
-    UsersModule
+    UsersModule,
   ],
-  controllers: [
-    AppController,
-    DirectSqlController,
-    UsingHelperServiceController
-  ],
-  providers: [SqlService, SpecificPantheonService]
+  controllers: [AppController, B2cController],
+  providers: [SqlService],
 })
 export class AppModule {}
