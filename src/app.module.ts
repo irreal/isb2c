@@ -9,12 +9,12 @@ import { B2cController } from "./b2c/b2c.controller";
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true,
+      isGlobal: true
     }),
     AuthModule,
-    UsersModule,
+    UsersModule
   ],
   controllers: [AppController, B2cController],
-  providers: [SqlService],
+  providers: [SqlService]
 })
 export class AppModule {}

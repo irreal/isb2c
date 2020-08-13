@@ -8,7 +8,7 @@ describe("B2c Controller", () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [B2cController],
-      providers: [{ provide: SqlService, useValue: {} }],
+      providers: [{ provide: SqlService, useValue: {} }]
     }).compile();
 
     controller = module.get<B2cController>(B2cController);
