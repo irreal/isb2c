@@ -15,7 +15,7 @@ async function bootstrap() {
     .setVersion(config.get<string>("OPENAPI_VERSION"))
     .addTag(config.get<string>("OPENAPI_TAG"))
     .addBasicAuth({
-      type: "http"
+      type: "http",
     })
     .build();
   const document = SwaggerModule.createDocument(app, options);
@@ -24,7 +24,7 @@ async function bootstrap() {
   const sql = app.get(SqlService);
   try {
     await sql.connectToSql();
-    await app.listen(3000);
+    await app.listen(parseInt(process.env.APP_PORT, 10) || 3000);
   } catch (err) {
     console.log("App initialization failed.", err);
     process.exit(1);
