@@ -1,7 +1,7 @@
 import { Controller, UseGuards, Get, Param, Request } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { ApiBasicAuth } from "@nestjs/swagger";
-import { SqlService, Parameter } from "src/sql/sql.service";
+import { SqlService, Parameter } from "../sql/sql.service";
 
 @UseGuards(AuthGuard("basic"))
 @ApiBasicAuth()
